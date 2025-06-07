@@ -54,7 +54,7 @@ const App = () => {
     return (
     <div draggable>
         <h2>Hello {myName}!</h2>
-        <p>I am a pargraph</p>
+        <p>I am a paragraph</p>
         <input type="text" />
         </div> );
 };

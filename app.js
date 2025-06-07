@@ -1,5 +1,5 @@
 // -- Library ---
-// 1. React.createElement 정의 : JSX 를 분석해서 가상돔을 만듬
+// React.createElement 역할 : JSX 를 분석해서 가상돔을 만듬
 const React = {
     createElement: (tag, props, ...children) => {
         // tag 가 함수인 경우 > 함수 호출 > Virtual DOM 을 반환 받음 (App)
