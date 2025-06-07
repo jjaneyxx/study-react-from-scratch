@@ -8,5 +8,10 @@ const React = {
 }; 
 
 // -- Application -- 
-const App = <div>Hello JSX!</div>
-console.log('Hello world'); 
+const App = (
+    <div draggable> 
+        <h2>Hello React</h2>
+        <p>I am a paragraph</p>
+        <input type="text"/>
+    </div>
+)

@@ -6,5 +6,7 @@ const React = {
     }
 };
 // -- Application -- 
-const App = React.createElement("div", null, "Hello JSX!");
-console.log('Hello world');
+const App = (React.createElement("div", { draggable: true },
+    React.createElement("h2", null, "Hello React"),
+    React.createElement("p", null, "I am a paragraph"),
+    React.createElement("input", { type: "text" })));
