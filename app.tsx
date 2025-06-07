@@ -48,16 +48,14 @@ const render = (el, container) => {
     container.appendChild(domEl); 
 }
 
-// -- Application -- 
-// JSX
-const App = (
-    <div draggable> 
-        <h2>Hello React</h2>
-        <p>I am a paragraph</p>
-        <input type="text"/>
-    </div>
-)
-
-// 2. 가상 돔 → 실제 DOM 으로 바꿔주는 역할
-
-render(App, document.getElementById('myapp'))
+// ---- Application --- //
+const App = () => {
+    const myName = 'Arindam';
+    return (
+    <div draggable>
+        <h2>Hello {myName}!</h2>
+        <p>I am a pargraph</p>
+        <input type="text" />
+        </div> );
+};
+render(<App />, document.getElementById('myapp'));

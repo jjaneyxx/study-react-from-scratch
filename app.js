@@ -19,7 +19,6 @@ const React = {
 // render 함수 목적. 가상DOM 객체(el) 을 받아서 실제 DOM 요소를 만들고, 컨테이너 안에 붙이기
 const render = (el, container) => {
     console.log(el); // 가상돔 트리 객체
-    console.log(container); // <div id="myapp"></div>
     // 1. DOM 요소 만들기
     // el.tag = 'div' > domEl = <div></div>
     let domEl = document.createElement(el.tag);
@@ -40,11 +39,15 @@ const render = (el, container) => {
     // 여기가 DOM 이 브라우저에 실제로 보여지는 순간 
     container.appendChild(domEl);
 };
-// -- Application -- 
-// JSX
-const App = (React.createElement("div", { draggable: true },
-    React.createElement("h2", null, "Hello React"),
-    React.createElement("p", null, "I am a paragraph"),
-    React.createElement("input", { type: "text" })));
-// 2. 가상 돔 → 실제 DOM 으로 바꿔주는 역할
-render(App, document.getElementById('myapp'));
+// ---- Application --- //
+const App = () => {
+    const myName = 'Arindam';
+    return (React.createElement("div", { draggable: true },
+        React.createElement("h2", null,
+            "Hello ",
+            myName,
+            "!"),
+        React.createElement("p", null, "I am a pargraph"),
+        React.createElement("input", { type: "text" })));
+};
+render(React.createElement(App, null), document.getElementById('myapp'));
