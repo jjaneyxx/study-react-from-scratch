@@ -48,7 +48,5 @@ React 는 현재 빈 객체이므로, React.createElement( ) 함수를 호출하
 ## Lesson Learned 
 리액트를 처음부터 구현해보면서, React.createElement( ) 와 render( ) 함수 각각의 역할에 대해 생각해볼 수 있었다. 그 동안 사용했던 리액트를 밑바닥부터 구현해보며, 두루뭉실하게 알고 있던 개념들이 잡히게 되어서 의미있었다.
 
-## 이해한 React 의 전반적인 동작 원리
-
 
    
