@@ -24,7 +24,7 @@ const useState = (initialState) => {
     // Check before setting AppState to initialState (reRender)
     myAppState = myAppState || initialState;
     console.log('useState is initialized with value:', initialState); 
-    
+
     const setState = (newState) => {
         console.log('setState is called with newState value:', newState); 
         // 수정
@@ -67,9 +67,12 @@ const render = (el, container) => {
     container.appendChild(domEl); 
 }
 
+// 두 상태 - name, counter : 버튼 클릭 마다 증가/감소
+// 
 // ---- Application --- //
 const App = () => {
-    const [name, setName] = useState('Arindam'); 
+    const [name, setName] = useState('Arindam');
+    const [count, setCount] = useState(0);  
     return (
     <div draggable>
         <h2>Hello {name}!</h2>
@@ -79,6 +82,9 @@ const App = () => {
         value={name}
         onchange={(e) => setName(e.target.value)}
         />
+        <h2> Counter value: {count}</h2>
+        <button onclick={() => setCount(count + 1)}>+1</button>
+        <button onclick={() => setCount(count - 1)}>-1</button>
     </div>
     );
 };

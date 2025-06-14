@@ -55,15 +55,23 @@ const render = (el, container) => {
     // 4. 만든 실제 DOM 을 부모 (container) 에 붙이기
     container.appendChild(domEl);
 };
+// 두 상태 - name, counter : 버튼 클릭 마다 증가/감소
+// 
 // ---- Application --- //
 const App = () => {
     const [name, setName] = useState('Arindam');
+    const [count, setCount] = useState(0);
     return (React.createElement("div", { draggable: true },
         React.createElement("h2", null,
             "Hello ",
             name,
             "!"),
         React.createElement("p", null, "I am a paragraph"),
-        React.createElement("input", { type: "text", value: name, onchange: (e) => setName(e.target.value) })));
+        React.createElement("input", { type: "text", value: name, onchange: (e) => setName(e.target.value) }),
+        React.createElement("h2", null,
+            " Counter value: ",
+            count),
+        React.createElement("button", { onclick: () => setCount(count + 1) }, "+1"),
+        React.createElement("button", { onclick: () => setCount(count - 1) }, "-1")));
 };
 render(React.createElement(App, null), document.getElementById('myapp'));
