@@ -48,5 +48,18 @@ React 는 현재 빈 객체이므로, React.createElement( ) 함수를 호출하
 ## Lesson Learned 
 리액트를 처음부터 구현해보면서, React.createElement( ) 와 render( ) 함수 각각의 역할에 대해 생각해볼 수 있었다. 그 동안 사용했던 리액트를 밑바닥부터 구현해보며, 두루뭉실하게 알고 있던 개념들이 잡히게 되어서 의미있었다.
 
+# State Management & Hooks 
+![image](https://github.com/user-attachments/assets/5fd685d8-5f29-4f8a-8143-c03fa706b93d)
+다 하고 보니.. main 브랜에서 작업 중이였더라구요 .. 
+다시 브랜치 수정해서 올리겠습니다 !! 
+
+## 소감
+- useState Hook 이 내부적으로 동작하는 방식에 대해 생각해볼 수 있었습니다.
+- 리액트에서 전역 상태 배열이 존재하고, useState( ) 호출이 상태 배열의 인덱스를 참조하므로, 각각 독립적인 상태를 가진다는 점이 가장 흥미로웠습니다.
+- 마지막 5번에서 `if a condition skips a useState call between renders or a loop introduces more useState call than originally intended.` 이 부분은 잘 이해가 가지 않아서 스터디 이후 추가적으로 공부를 더 해봐야 할 것 같습니다 !
+   - _루프가 원래 의도한 것보다 많은 호출을 도입하는 경우 해당 상태를 가리키는 모든 커서 포인터가 엉망이 됩니다_
+
+### 노션 링크
+https://www.notion.so/jjanie-study/2-State-Management-Hooks-2086d4bfccab800fae74e593c76a1d47?source=copy_link
 
    
