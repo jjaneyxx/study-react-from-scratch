@@ -100,3 +100,7 @@ const App = () => {
     );
 };
 render(<App />, document.getElementById('myapp'));
+
+// 5. Why the rules of React
+// useState( ) 호출은 상태 배열의 특정 인덱스를 참조하므로, 
+// 내부에서 훅 사용시, useState 결과 예측이 어렵다. (커서 포인터 엉망)
