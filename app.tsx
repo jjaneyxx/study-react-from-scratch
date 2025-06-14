@@ -17,19 +17,24 @@ const React = {
     }
 }; 
 
+let myAppState; 
+
 // 직접 useState 를 정의
 const useState = (initialState) => {
+    // Check before setting AppState to initialState (reRender)
+    myAppState = myAppState || initialState;
     console.log('useState is initialized with value:', initialState); 
-    let state = initialState; // 인자로 받은 값이 state 
+    
     const setState = (newState) => {
         console.log('setState is called with newState value:', newState); 
-        state = newState; 
+        // 수정
+        myAppState = newState;
 
         // Render the UI fresh given state has changed.
         reRender(); 
     }
-    // 그리고 반환
-    return [state, setState]; 
+    // 그리고 반환 (수정)
+    return [myAppState, setState]; 
 }
 
 // 리렌더링
