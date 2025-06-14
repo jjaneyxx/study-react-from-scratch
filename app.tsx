@@ -17,24 +17,33 @@ const React = {
     }
 }; 
 
-let myAppState; 
+// 수정
+let myAppState = []; 
+let myAppStateCursor = 0;
 
 // 직접 useState 를 정의
 const useState = (initialState) => {
+    // get the cursor for this useState
+    const stateCursor = myAppStateCursor;
+
     // Check before setting AppState to initialState (reRender)
-    myAppState = myAppState || initialState;
-    console.log('useState is initialized with value:', initialState); 
+    myAppState[stateCursor] = myAppState[stateCursor] || initialState;
+
+    console.log(`useState is initialized at cursor ${stateCursor} with value:`, myAppState); 
 
     const setState = (newState) => {
-        console.log('setState is called with newState value:', newState); 
+        console.log(`setState is called at cursor ${stateCursor} with newState value:`, newState); 
         // 수정
-        myAppState = newState;
+        myAppState[stateCursor] = newState;
 
         // Render the UI fresh given state has changed.
         reRender(); 
     }
+    // prepare the cursor for the next state.
+    myAppStateCursor++;
+    console.log(`stateDump`, myAppState);
     // 그리고 반환 (수정)
-    return [myAppState, setState]; 
+    return [myAppState[stateCursor], setState]; 
 }
 
 // 리렌더링
@@ -42,8 +51,10 @@ const reRender = () => {
     console.log('reRender-ing :)'); 
     const rootNode = document.getElementById('myapp');
     rootNode.innerHTML = '';
-    //  simply calls the render fresh for the App
-    render(<App />, document.getElementById('myapp')); 
+    // Reset the global state cursor
+    myAppStateCursor = 0;
+    // then render Fresh, 수정
+    render(<App />, rootNode);
 }
 
 // el : App 함수가 리턴하는 가상돔 트리 객체
