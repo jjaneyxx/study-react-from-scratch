@@ -56,4 +56,34 @@ React 는 현재 빈 객체이므로, React.createElement( ) 함수를 호출하
 ## 소감
 - useState Hook 이 내부적으로 동작하는 방식에 대해 생각해볼 수 있었습니다.
 - 리액트에서 전역 상태 배열이 존재하고, useState( ) 호출이 상태 배열의 인덱스를 참조하므로, 각각 독립적인 상태를 가진다는 점이 가장 흥미로웠습니다.
-- 마지막 5번에서 `if a condition skips a useState call between renders or a loop introduces more useState call than originally intended.` 이 부분은 잘 이해가 가지 않아서 스터디 이후 추가적으로 공부를 더 해보려 합니다. 
+- 마지막 5번에서 `if a condition skips a useState call between renders or a loop introduces more useState call than originally intended.` 이 부분은 잘 이해가 가지 않아서 스터디 이후 추가적으로 공부를 더 해보려 합니다.
+
+# Part 3 - React Suspense & Concurrent Mode
+
+## 소감
+### React Suspense ↔ Next.js 의 Suspense 활용
+이전 프로젝트에서 Next.js 의 서버 컴포넌트에서 Suspense 로 비동기 컴포넌트 (폼) 을 감싸 CSR bailout 빌드 에러 해결하기 위해 사용했습니다. 그래서 비동기 작업을 처리해주고, fallback UI 를 표시해주어 성능 최적화와 UX 경험을 올리기 위한 방법이라고만 이해했습니다. 
+이번 기회를 통해, React.Suspense API 는 사용 환경 (브라우저/서버) 에 따라 동작 방식이 달라지는 API 라는 점을 배울 수 있었습니다. 
+
+### Susepense 의 동작 원리
+Suspense 의 동작 원리가, 
+컴폰너트 렌더링 > Promise throw > 렌더링 중단 / 대기 > 다시 렌더링 시작이라는 점을 배웠습니다
+
+```text
+1. 컴포넌트가 렌더링 중 데이터가 필요함을 발견
+2. 컴포넌트가 Promise 를 throw
+3. 리액트가 이를 감지하고 렌더링을 중단
+4. <Suspense fallback> 컴포넌트 표시
+5. Promise 가 완료되면 처음부터 다시 렌더링
+``` 
+
+### 동시성 모드, Concurrent mode
+이번에 동시성 모드를 처음 들어봤습니다 😅
+- 리액트의 렌더링, 자바스크립트 싱글 스레드 모두 동기 작업이라, 작업 하나가 오래 걸리면 그 다음 작업을 할 수 없는 문제
+- 예시 : 렌더링이 끝나기 이전에는, 사용자 인터렉션이 불가능 > UX 에 좋지 않음
+- 해결 : 렌더링 엔진을 변경하고, 스케쥴러를 이용해 우선순위에 따라 급한 작업 먼저 처리
+
+이 괒어을 구현한 게 동시성 모드라고 이해했습니다 ! 
+- 이해 되지 않은 내용 : `ReactDOM.render를 통한 lagacy mode와 createRoot를 통한 concurrent mode를 선택할 수 있게 하였다.` 
+
+
