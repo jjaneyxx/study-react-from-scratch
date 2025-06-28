@@ -86,4 +86,10 @@ Suspense 의 동작 원리가,
 이 괒어을 구현한 게 동시성 모드라고 이해했습니다 ! 
 - 이해 되지 않은 내용 : `ReactDOM.render를 통한 lagacy mode와 createRoot를 통한 concurrent mode를 선택할 수 있게 하였다.` 
 
-
+# Part 4— Server Side Rendering and its Challenges
+## 소감
+ReactSSR 을 직접 구현해보면서 서버와 클라이언트 환경의 차이에 대해서 실감할 수 있었습니다. 
+BrowserRouter 을 StaticRouter 로 교체하는 내용이나, .hydrateRoot(React18+) 를 이용해 직접 하이드레이션을 적용해보면서 리액트가 자동으로
+처리해주는 부분이 많다는 걸 다시 한번 깨달았습니다. 또 이전까지 tailwind 만 사용했어서 styled-components 는 다소 생소했는데, 
+서버에서 스타일을 추출하여 html 에 직접 포함시킬 수 있다는 점이 신기했습니다 ! 
+리액트의 하이드레이션 과정이 서버/클라이언트 사이 차이가 있다는 점이 제일 흥미로웠어서, 스터디가 끝나면 리액트 외 다른 라이브러리들은 어떻게 이 과정을 처리하는지 공부해보고 싶습니다 👨🏻‍💻
