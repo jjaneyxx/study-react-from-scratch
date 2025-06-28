@@ -1,8 +1,24 @@
 {
   "devDependencies": {
     "typescript": "^5.8.3"
-  }, 
+  },
   "scripts": {
-    "dev": "tsc -w"
-}
+    "dev": "tsc -w",
+    "start": "react-scripts start"
+  },
+  "name": "study-react-hoco",
+  "version": "1.0.0",
+  "description": "1. `npx tsx -init`: tsx (typescript 컴파일러) 가 tsconfig.json (초기 설정 파일) 생성 2. tsconfig.json 수정    ```ts    \"jsx\" : \"react\", // 기존 (preserve)    \"strict\" : false,    ```    - preserve 옵션을 그대로 두면, JSX 문법을 자바스크립트로 변환하지 않고 그대로 둔다.  실제 리액트 프로젝트에서는 Babel 이 처리     - react 옵션 : tsc 가 JSX 를 브라우저에서 실행 가능한 자바스크립트로 컴파일       - JSX 를 React.createElement(..) 형태로 변환 3. 프로젝트 실행 명령어    - npx serve . : 웹 서버를 연는 역할    - npm run dev : JSX 를 컴파일하고, app.tsx 를 감시하는 역할      - 내부적으로 package.json 의 tsx -w 명령어를 실행해서, app.tsx 를 app.js 로 변환",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/study-react-from-scratch-hoco/hamyeong-jang.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/study-react-from-scratch-hoco/hamyeong-jang/issues"
+  },
+  "homepage": "https://github.com/study-react-from-scratch-hoco/hamyeong-jang#readme"
 }
