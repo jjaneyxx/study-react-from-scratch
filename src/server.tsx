@@ -18,7 +18,7 @@ app.use(express.static('./build', { index: false }));
 
 app.get('/*', (req : any, res: any) => {
   const reactApp = render(req.url);
-  const response = templateHTML.replace("{{APP}}",reactApp);
+  const response = templateHTML.replace("{{APP}}",reactApp).replace("{{STYLE}}", sheet.getStyleTags());
   return res.send(response);
 });
 
