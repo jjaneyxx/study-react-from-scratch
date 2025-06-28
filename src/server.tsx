@@ -1,16 +1,16 @@
 // server.tsx
 import express from 'express';
 import React from 'react';
-import { renderToString } from 'react-dom/server';
-
+// import { renderToString } from 'react-dom/server';
+import render from './index.server';
 const app = express();
 
 app.get('/*', (req: any, res: any) => {  // 둘 다 any로 통일
-  const reactApp = renderToString(<h1>Hello from the Server</h1>);
+  const reactApp = render(req.url);
   return res.send(
     `<html>
       <body>
-        <div id="root"> ${reactApp}</div>
+        <div id="root햐"> ${reactApp}</div>
       </body>
     </html>`  
   );

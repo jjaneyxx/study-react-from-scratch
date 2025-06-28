@@ -1,7 +1,4 @@
 "use strict";
-
-console.log("서버 파일이 실행되었습니다");
-
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
